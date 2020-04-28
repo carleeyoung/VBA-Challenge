@@ -21,7 +21,7 @@ For Each ws In Worksheets
     'Assign variables for analysis
     Dim Ticker As String
 
-    Dim i As Long
+    Dim i, j, lastRow As Long
 
     Dim openingPrice, closingPrice, yearlyChange, percentYearlyChange As Double
 
@@ -40,9 +40,6 @@ For Each ws In Worksheets
 
         'Sum values of each stock price
             totalVolume = Cells(i, 7) + totalVolume
-
-        'continues code if there is an overflow error because long will not hold values greater than 2,147,483,647
-         '   On Error Resume Next
 
         ' Searches for when the value of the next cell is different than that of the current cell
             If Cells(i + 1, 1).Value <> Cells(i, 1).Value Then
@@ -74,7 +71,7 @@ For Each ws In Worksheets
                 
                 Cells(j, 11).Value = percentYearlyChange
                 
-                Cells(j, 11).Style = "Percent"
+                Cells(j, 11).NumberFormat = "0.00%"
                     
                     'Format color based on positive or negative yearly change
                     If yearlyChange < 0 Then
@@ -107,6 +104,7 @@ For Each ws In Worksheets
             End If
 
         Next i
+
 Columns("I:L").AutoFit
 
 Next ws
