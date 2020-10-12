@@ -8,4 +8,7 @@ Create a script that will loop through all the stocks for one year and output th
 * The total stock volume of the stock.
 
 Add conditional formatting that will highlight positive change in green and negative change in red.
-The result is as follows.
+
+The result is as follows:
+
+![](Image1.png)
